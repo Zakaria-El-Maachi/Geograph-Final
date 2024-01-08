@@ -1,0 +1,25 @@
+@import './../../extraStyles/animations.scss';
+
+$back-color: rgb(76, 198, 255);
+
+
+.high-panel{
+    width: 100%;
+    max-width: 30em;
+    background-color: rgb(255, 255, 255);
+    z-index: 2;
+
+    border: 0.2em solid $back-color;
+    border-radius: 0.5em;
+    height: 22em;
+    animation: show-up 0.25s ease;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.error-msj{
+    color: rgb(255, 0, 0);
+    font-weight: bolder;
+}

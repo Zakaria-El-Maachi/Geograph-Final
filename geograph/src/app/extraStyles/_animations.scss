@@ -1,0 +1,50 @@
+
+
+@keyframes show-up{
+    from{
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to{
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+@keyframes turn-infinite {
+    from{
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(360deg);
+    }
+}
+@keyframes marquee {
+    from{
+        right: 0%;
+    }
+    50%{
+        right: -50%;
+    }
+    to{
+        right: 0%;
+    }
+}
+@keyframes bounce {
+    0%   { transform: scale(1,1)}
+    10%  { transform: scale(1.1,.9)}
+    30%  { transform: scale(.9,1.1)}
+    50%  { transform: scale(1.05,.95)}
+    58%  { transform: scale(1,1)}
+    65%  { transform: scale(1,1)}
+    100% { transform: scale(1,1)}
+}
+@keyframes opaciting{
+    from{opacity: 1;transform: scale(1);}
+    50%{opacity: 0.5;transform: scale(0.8);}
+    to{opacity: 1;transform: scale(1);}
+}
+@keyframes falling {
+    from{opacity: 0;transform: translateY(-1em);}
+    25%{opacity: 1;}
+    to{opacity: 1;transform: translateY(0em);}
+}

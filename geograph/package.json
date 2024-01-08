@@ -1,0 +1,31 @@
+{
+  "name": "geograph",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "d3": "^7.8.5",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.0.3",
+    "next": "^14.0.4",
+    "next-auth": "^4.24.5",
+    "react": "^18",
+    "react-dom": "^18",
+    "react-globe.gl": "^2.27.1",
+    "sass": "^1.69.7",
+    "three": "^0.160.0"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.0.1",
+    "eslint": "^8",
+    "eslint-config-next": "14.0.4",
+    "postcss": "^8",
+    "tailwindcss": "^3.3.0"
+  }
+}

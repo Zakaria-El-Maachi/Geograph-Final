@@ -1,0 +1,35 @@
+@import './../../extraStyles/mixin.scss';
+
+.globe{
+    width: 100%;
+    flex: 1;
+    position: relative;
+    min-height: 50em;
+
+
+    @include mq(35em){
+        width: 50%;
+    }
+
+    .header{
+        position: absolute;
+        top: 1rem;
+        width: 100%;
+        background-color: rgb(255, 255, 255);
+        padding: 0.5em;
+        z-index: 2;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    .scroll-btn{
+        position: fixed;
+        top: 90%;
+        left: 1em;
+        z-index: 3;
+        @include mq(35em){
+            display: none;
+        }
+    
+    }
+}
