@@ -49,10 +49,9 @@ const SettingsPage = () => {
         if(success){
             console.log("User Updated Successfully");
             update({
-              onSuccess: () => {
-                setInitialUsername(editedUsername);
-              },
+              user: editedUsername, 
             });
+            setInitialUsername(editedUsername);
         }
     }catch (error){
         console.log(error)
