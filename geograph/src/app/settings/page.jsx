@@ -8,12 +8,14 @@ import { faEdit, faSave, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import './tailwind.css';
 import { signOut } from "next-auth/react";
 import { useSession } from "next-auth/react";
+import Mess from '../Components/message';
 
 
 const SettingsPage = () => {
 
-    const {data: session, update} = useSession(); 
+  const {data: session, update} = useSession(); 
 
+  const [error, setError] = useState("");
   const [isUsernameEditing, setIsUsernameEditing] = useState(false);
   const [isPasswordEditing, setIsPasswordEditing] = useState(false);
   
@@ -25,6 +27,7 @@ const SettingsPage = () => {
 
 
   const handleSaveChanges = async() => {
+    setError("");
     setIsUsernameEditing(false);
     setIsPasswordEditing(false);
     if(!initialUsername){
@@ -44,14 +47,17 @@ const SettingsPage = () => {
             body: JSON.stringify({username:initialUsername, newUserName: editedUsername, newPassword: editedPassword})
         });
 
-        const {success} = await resExists.json();
+        const res = await resExists.json();
         
-        if(success){
+        if(res.success){
             console.log("User Updated Successfully");
             update({
               user: editedUsername, 
             });
             setInitialUsername(editedUsername);
+        }
+        else{
+          setError(res.message);
         }
     }catch (error){
         console.log(error)
@@ -127,7 +133,7 @@ const SettingsPage = () => {
                   onClick={() => handleToggleEdit('password')}
                 />
               </div>          </div>
-              <div>
+            <div>
         </div>
             <button onClick={() => signOut()} className="w-full p-2 rounded bg-blue-600 hover:bg-blue-700 transition duration-300">Log out</button>
           </section>
@@ -169,6 +175,7 @@ const SettingsPage = () => {
             </div>
           </section>
           <button className="w-full py-3 rounded bg-green-600 hover:bg-green-700 transition duration-300" onClick={handleSaveChanges}>Save changes</button>
+          <Mess text={error} />
         </div>
         <div className="absolute top-5 right-5 text-5xl rounded-full"><p>{initialUsername}</p></div>
       </div>

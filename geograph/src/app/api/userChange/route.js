@@ -8,7 +8,15 @@ export async function POST(req) {
       await connectMongoDB();
   
       const { username, newUserName, newPassword } = await req.json();
-  
+      
+
+      const userID = await User.findOne({username: newUserName});
+      console.log(userID);
+      if(userID != null){
+        console.log('New Username Already Taken:', newUserName);
+        return NextResponse.json({success: false, message: 'New Username Already Taken'});
+      }
+
       // Find the user by username
       const user = await User.findOne({ username });
   

@@ -1,0 +1,33 @@
+@startuml
+
+title GeoGraph Use Case Diagram
+
+:User: as U<<Person>>
+
+Rectangle GeoGraph {
+(Login) as LI
+(Download Data) as D
+(Share Data) as Share
+(Logout) as LO
+(Visualize Data) as VD
+(Customize Data) as CD
+(Choose Region) as CR
+(Filter Variables) as FV
+(Search Time Frame) as ST
+}
+
+U --> LI
+U -UP-> LO
+U -UP-> D
+U -UP-> Share
+LO .up.> LI: <<includes>>
+D .up.> LI: <<includes>>
+Share .up.> LI: <<inlcudes>>
+
+U --right--> VD
+CD .right.> VD: <<extends>>
+CR --|> CD
+FV --|> CD
+ST --|> CD
+
+@enduml
