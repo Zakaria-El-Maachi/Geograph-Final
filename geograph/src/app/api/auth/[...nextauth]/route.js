@@ -36,12 +36,14 @@ const authOptions = {
         strategy: "jwt",
     },
     callbacks: {
-        async jwt({ token, user }) {
-            token.username = user?.username;
+        async jwt({ token, user, account, profile }) {
+            if(user){
+                token.username = user.username;
+            }
             return token;
-          },          
-        async session({session, token, user}){
-            session.user = user;
+        },          
+        async session({session, token}){
+            session.user = token.username;
             return session;
         }
     },

@@ -16,3 +16,22 @@ export default function RootLayout({ children }) {
     </html>
   )
 }
+
+
+// const isWeatherAppPage = (pathname) => pathname === '/'; // Adjust the pathname as needed
+
+// export default function RootLayout({ children, pathname }) {
+//   if (isWeatherAppPage(pathname)) {
+//     return (
+//       <>
+//         {children}
+//       </>
+//     );
+//   }
+
+//   return (
+//     <html lang="en">
+//       <body className={inter.className}><AuthProvider>{children}</AuthProvider></body>
+//     </html>
+//   )
+// }

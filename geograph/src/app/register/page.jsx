@@ -1,6 +1,6 @@
 "use client"
 
-import React, { FormEvent } from "react";
+import React from "react";
 import Link from "next/link";
 import { useState } from "react";
 import Mess from "../Components/message";
@@ -74,14 +74,13 @@ export default function signin(){
                     </div>
                     <div className="mb-4 flex justify-between items-center">
                     <div className="flex items-center">
-                        <input id="remember_me" type="checkbox" className="h-4 w-4 text-indigo-600 transition duration-150 ease-in-out" />
-                        <label htmlFor="remember_me" className="ml-2 block text-sm leading-5 text-gray-300">
-                        Remember me
-                        </label>
+                        <Link href="/signin" className="inline-block align-baseline text-sm text-blue-500 hover:text-blue-800" >
+                            Already have an account ?
+                        </Link>
+                        <Link href="/" className="inline-block align-baseline text-sm text-blue-500 hover:text-blue-800" >
+                            Go to Weather Globe
+                        </Link>
                     </div>
-                    <Link href="/signin" className="inline-block align-baseline text-sm text-blue-500 hover:text-blue-800" >
-                        Already have an account ?
-                    </Link>
                     </div>
                     <div>
                     <button className="w-full bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
