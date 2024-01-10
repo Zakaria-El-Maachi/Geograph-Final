@@ -1,6 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
 import { connectMongoDB } from "../../../../lib/mongodb";
-import mongoose from "mongoose";
 import User from "../../../../models/user";
 
 export async function POST(req){

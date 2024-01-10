@@ -12,7 +12,7 @@ import { useSession } from "next-auth/react";
 
 const SettingsPage = () => {
 
-    const {data: session} = useSession(); 
+    const {data: session, update} = useSession(); 
 
   const [isUsernameEditing, setIsUsernameEditing] = useState(false);
   const [isPasswordEditing, setIsPasswordEditing] = useState(false);
@@ -48,7 +48,11 @@ const SettingsPage = () => {
         
         if(success){
             console.log("User Updated Successfully");
-            return;
+            update({
+              onSuccess: () => {
+                setInitialUsername(editedUsername);
+              },
+            });
         }
     }catch (error){
         console.log(error)
@@ -167,7 +171,7 @@ const SettingsPage = () => {
           </section>
           <button className="w-full py-3 rounded bg-green-600 hover:bg-green-700 transition duration-300" onClick={handleSaveChanges}>Save changes</button>
         </div>
-        <div className="absolute top-5 right-5 text-5xl rounded-full"><p>{session?.user}</p></div>
+        <div className="absolute top-5 right-5 text-5xl rounded-full"><p>{initialUsername}</p></div>
       </div>
     </div>
   );

@@ -16,7 +16,7 @@ export async function POST(req) {
       if (user) {
         user.username = newUserName;
         if(newPassword){
-            const pass = await bcrypt.hash(newPassword, 19)
+            const pass = await bcrypt.hash(newPassword, 12)
             user.password = pass;
         }
         await user.save();

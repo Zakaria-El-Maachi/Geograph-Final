@@ -46,6 +46,14 @@ const WeatherAppPage = () => {
         width="100%"
         height="800px"
       />
+      {session?.user ?  <div className="flex justify-end mt-4">
+        <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 mr-2">
+        Download
+      </button>
+      <button className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4">
+        Share
+      </button>
+      </div> : <></>}
     </div>
   );
 };
